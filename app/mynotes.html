@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row row-content row-offcanvas-right" ng-controller="NoteListController">
+    <div class="col-xs-12">
+      <ul class="media-list">
+        <li ng-repeat="note in filteredNotes">
+          <div class="media-body note-view">
+            <a href="#/editnote/{{note.id}}">
+              <h4 class="note-view-heading"><em>{{note.title}}</em></h4>
+              <br>
+              <span class="note-view-body"><div ng-bind-html="note.body"></div><br><br></span>
+              <em>Created on: {{note.date | date}}</em>;
+            </a>
+          </div>
+        </li>
+      </ul>
+      <uib-pagination total-items="notes.length" ng-model="currentPage" items-per-page="pageLength"></uib-pagination>
+    </div>
+  </div>
+</div>

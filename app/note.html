@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row row-content row-centered">
+    <div class="col-xs-12 col-sm-9">
+      <form class="form-horizontal" id="noteForm" name="noteForm" ng-submit="createNote()" novalidate>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <label for="body"></label>
+            <input type="text" id="title" dir="ltr" class="note-header" placeholder="Untitled" ng-model="note.title"></input>
+            <br>
+            <div class="form-group" ng-class="{ 'has-error' : noteForm.body.$invalid && !noteForm.body.$pristine }">
+              <!-- <textarea class="form-control note-body" id="body" name="body" rows="12" ng-model="note.body" placeholder="Enter Your Note Here" required>{{note.body}}</textarea> -->
+              <div text-angular ng-model="note.body" id="body" name="body" ta-text-editor-class="border-around" ta-html-editor-class="border-around">{{note.body}}</div>
+              <span ng-show="noteForm.body.$error.required && !noteForm.body.$pristine" class="help-block">Your note must at least have a body to be created.</span>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="noteForm.$invalid">{{editing ? 'Edit' : 'Create'}} Note</button>
+      </form>
+    </div>
+  </div>
+</div>
